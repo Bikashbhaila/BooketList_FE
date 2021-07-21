@@ -1,0 +1,13 @@
+.navbar-brand {
+    padding-left: 1rem;
+  }
+
+#navbarNav {
+    width: 100%;
+}
+
+.right-nav-links {
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }

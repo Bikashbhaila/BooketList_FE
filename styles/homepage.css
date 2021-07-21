@@ -1,0 +1,96 @@
+body,
+html {
+  height: 100%;
+}
+
+.jumbotron {
+  background-image: url("/images/books-bg-md.jpg");
+  background-size: cover;
+}
+
+.cont-title {
+  padding-top: 10px;
+}
+
+.book-search {
+  width: 20%;
+}
+
+.search-section {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.btn-outline-success {
+  /* change border color on search button */
+  border-color: #7acbcd;
+  color: #7acbcd;
+}
+
+.btn-outline-success:hover {
+  /* change border color on search button when hovered*/
+  background-color: #7acbcd;
+  border-color: #7acbcd;
+}
+
+.form-control-sm {
+  margin: 5px;
+}
+
+.trending {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.trending-row {
+  display: flex;
+  width: fit-content;
+}
+
+.school {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.school-row {
+  display: flex;
+  width: fit-content;
+}
+
+.card {
+  margin: 10px;
+}
+
+.btn-outline-success {
+  display: flex;
+}
+
+.btn-primary {
+  background-color: #7acbcd;
+  border-color: #7acbcd;
+}
+
+.btn-primary:hover {
+  background-color: #93f0f1;
+  border-color: #93f0f1;
+}
+
+.footer {
+  padding: 15px;
+  background-color: #212529;
+}
+
+.copyright-info {
+  text-align: center;
+  padding-right: 1rem;
+}
+
+#results_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
