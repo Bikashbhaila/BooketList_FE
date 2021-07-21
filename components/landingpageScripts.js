@@ -38,7 +38,7 @@ function displayBookResults(books) {
     const title = book.volumeInfo.title;
     const author = book.volumeInfo.authors;
     const isbn = book.volumeInfo.industryIdentifiers[0].identifier + " , " + book.volumeInfo.industryIdentifiers[1].identifier;
-    const image_url = book.volumeInfo.imageLinks.thumbnail;
+    const image_url = book.volumeInfo.imageLinks.thumbnail.replace("http", "https");
     const categories = book.volumeInfo.categories[0];
 
     // create card components
@@ -75,8 +75,19 @@ function addCard(e) {
   const categories = e.target.parentElement.children[3].innerHTML;
   const image_url = e.target.parentElement.parentElement.children[0].getAttribute("src") //link only
 
+
   // use fetch to make post call to our api 
-  const URL = "https://booketlist.herokuapp.com/books";
+  const herokuApiUrl = "https://booketlist.herokuapp.com/books";
+  const localApiUrl = "https://localhost:3000/books"
+
+  let URL;
+
+  if (location.href.includes("github.io")) {
+    URL = herokuApiUrl;
+  } else {
+    URL = localApiUrl;
+  }
+
   fetch(URL, {
     method: "POST",
     headers: { "Content-type": "application/json" },
