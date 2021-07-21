@@ -76,7 +76,7 @@ function addCard(e) {
   const image_url = e.target.parentElement.parentElement.children[0].getAttribute("src") //link only
 
   // use fetch to make post call to our api 
-  const URL = "http://localhost:3000/books";
+  const URL = "https://booketlist.herokuapp.com/books";
   fetch(URL, {
     method: "POST",
     headers: { "Content-type": "application/json" },
