@@ -78,15 +78,16 @@ function addCard(e) {
 
   // use fetch to make post call to our api 
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
-  const localApiUrl = "https://localhost:3000/books"
+  // const localApiUrl = "https://localhost:3000/books"
 
-  let URL;
+  let URL = herokuApiUrl;
 
-  if (location.href.includes("github.io")) {
-    URL = herokuApiUrl;
-  } else {
-    URL = localApiUrl;
-  }
+// for testing local and 
+  // if (location.href.includes("github.io")) {
+  //   URL = herokuApiUrl;
+  // } else {
+  //   URL = localApiUrl;
+  // }
 
   fetch(URL, {
     method: "POST",
