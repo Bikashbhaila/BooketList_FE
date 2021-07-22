@@ -42,24 +42,27 @@ function displayBookResults(books) {
     const categories = book.volumeInfo.categories[0];
 
     // create card components
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.style.width = "18rem";
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("col-sm-3");
 
-    card.innerHTML = `
-    <img src=${image_url} class="card-img-top" height="400" width="250" alt=${title}>
-    <div class="card-body">
+
+    cardDiv.innerHTML = `
+    <div class="card">
+      <img src=${image_url} class="card-img-top" height="400" width="250" alt=${title}>
+      <div class="card-body">
         <h5 class="card-title">${title}</h5>
         <h6 class="sub-title text-muted">${author}</h6>
         <h6 class="sub-title text-muted">${isbn}</h6>
         <p class="card-text">${categories}</p>  
         <button name="add_Button strong" class="btn btn-primary">BOOK ET</button>
+      </div>
     </div>
     `
     // append card to results container to display results
-    document.getElementById("results_container").appendChild(card);
+    document.getElementById("results_container").appendChild(cardDiv);
 
-    const addBtn = card.children[1].lastElementChild;
+    const addBtn = cardDiv.firstElementChild.children[1].lastElementChild;
+    console.log(addBtn);
     addBtn.addEventListener("click", addCard);
   }
 }
@@ -78,15 +81,16 @@ function addCard(e) {
 
   // use fetch to make post call to our api 
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
-  const localApiUrl = "https://localhost:3000/books"
+  // const localApiUrl = "https://localhost:3000/books"
 
-  let URL;
+  let URL = herokuApiUrl;
 
-  if (location.href.includes("github.io")) {
-    URL = herokuApiUrl;
-  } else {
-    URL = localApiUrl;
-  }
+// for testing local and 
+  // if (location.href.includes("github.io")) {
+  //   URL = herokuApiUrl;
+  // } else {
+  //   URL = localApiUrl;
+  // }
 
   fetch(URL, {
     method: "POST",
