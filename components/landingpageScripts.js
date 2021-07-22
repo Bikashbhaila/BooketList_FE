@@ -32,7 +32,7 @@ function searchBooks(userInput) {
 }
 
 function displayBookResults(books) {
-  console.log(books);
+  // console.log(books);
   for (const book of books) {
     let title = book.volumeInfo.title;
     let author = book.volumeInfo.authors;
@@ -62,6 +62,9 @@ function displayBookResults(books) {
       image_url = book.volumeInfo.imageLinks.thumbnail.replace("http", "https");
     }
 
+    // if (title === undefined || author === undefined || description === undefined isbn, categories, notes )
+
+    // { title, autor, des} = "No inform atio"
     // create card components
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col-sm-3");
@@ -71,9 +74,9 @@ function displayBookResults(books) {
       <img src=${image_url} class="card-img-top" height="300" width="250" alt=${title}>
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
-        <h6 class="sub-title text-muted">${author}</h6>
-        <h6 class="sub-title text-muted">${isbn}</h6>
-        <p class="card-text">${categories}</p>  
+        <h6 class="sub-title text-muted">by ${author}</h6>
+        <h6 class="sub-title text-muted">ISBN: ${isbn}</h6>
+        <p class="card-text">Categories: <em>${categories}</em></p>
         <button name="add_Button strong" class="btn btn-primary">BOOK ET</button>
       </div>
     </div>
@@ -89,14 +92,21 @@ function displayBookResults(books) {
 
 function addCard(e) {
   // extract the data from the elements using target element values
-  console.log(e.target.parentElement);
+  // console.log(e.target.parentElement);
 
   const title = e.target.parentElement.children[0].innerHTML; //Title: "Book title"
-  const author = e.target.parentElement.children[1].innerHTML;
-  const isbn = e.target.parentElement.children[2].innerHTML;
-  const categories = e.target.parentElement.children[3].innerHTML;
+  const author = e.target.parentElement.children[1].innerHTML.replace("by", "");
+  const isbn = e.target.parentElement.children[2].innerHTML.replace(
+    "ISBN: ",
+    ""
+  );
+  const categories = e.target.parentElement.children[3].innerHTML.replace(
+    "Categories: ",
+    ""
+  );
   const image_url =
     e.target.parentElement.parentElement.children[0].getAttribute("src"); //link only
+  const notes = "**Click NOTE ET button to add note";
 
   // use fetch to make post call to our api
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
@@ -120,6 +130,7 @@ function addCard(e) {
       isbn,
       categories,
       image_url,
+      notes,
     }),
   })
     .then((res) => {
