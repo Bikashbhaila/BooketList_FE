@@ -31,20 +31,24 @@ function searchBooks(userInput) {
     .catch((err) => console.log(err));
 }
 
-
 function displayBookResults(books) {
   console.log(books);
   for (const book of books) {
     const title = book.volumeInfo.title;
     const author = book.volumeInfo.authors;
-    const isbn = book.volumeInfo.industryIdentifiers[0].identifier + " , " + book.volumeInfo.industryIdentifiers[1].identifier;
-    const image_url = book.volumeInfo.imageLinks.thumbnail.replace("http", "https");
+    const isbn =
+      book.volumeInfo.industryIdentifiers[0].identifier +
+      " , " +
+      book.volumeInfo.industryIdentifiers[1].identifier;
+    const image_url = book.volumeInfo.imageLinks.thumbnail.replace(
+      "http",
+      "https"
+    );
     const categories = book.volumeInfo.categories[0];
 
     // create card components
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col-sm-3");
-
 
     cardDiv.innerHTML = `
     <div class="card">
@@ -57,7 +61,7 @@ function displayBookResults(books) {
         <button name="add_Button strong" class="btn btn-primary">BOOK ET</button>
       </div>
     </div>
-    `
+    `;
     // append card to results container to display results
     document.getElementById("results_container").appendChild(cardDiv);
 
@@ -71,21 +75,20 @@ function addCard(e) {
   // extract the data from the elements using target element values
   console.log(e.target.parentElement);
 
-
-  const title = e.target.parentElement.children[0].innerHTML; //Title: "Book title" 
+  const title = e.target.parentElement.children[0].innerHTML; //Title: "Book title"
   const author = e.target.parentElement.children[1].innerHTML;
   const isbn = e.target.parentElement.children[2].innerHTML;
   const categories = e.target.parentElement.children[3].innerHTML;
-  const image_url = e.target.parentElement.parentElement.children[0].getAttribute("src") //link only
+  const image_url =
+    e.target.parentElement.parentElement.children[0].getAttribute("src"); //link only
 
-
-  // use fetch to make post call to our api 
+  // use fetch to make post call to our api
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
   // const localApiUrl = "https://localhost:3000/books"
 
   let URL = herokuApiUrl;
 
-// for testing local and 
+  // for testing local and
   // if (location.href.includes("github.io")) {
   //   URL = herokuApiUrl;
   // } else {
@@ -100,13 +103,13 @@ function addCard(e) {
       author,
       isbn,
       categories,
-      image_url
-    })
+      image_url,
+    }),
   })
-    .then(res => {
-      if (res.ok) return res.json()
+    .then((res) => {
+      if (res.ok) return res.json();
     })
-    .then(response => {
-      console.log(response)   // console logging success
-    })
+    .then((response) => {
+      console.log(response); // console logging success
+    });
 }
