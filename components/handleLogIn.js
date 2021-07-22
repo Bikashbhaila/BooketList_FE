@@ -8,7 +8,7 @@ const loggedOutNav = `
 
 const loggedInNav = `
 <li class="nav-item">
-    <a class="nav-link" href="/components/index.html">Log out</a>
+    <a class="nav-link" href="./view/index.html">Log out</a>
 </li>
 `;
 

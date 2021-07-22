@@ -1,26 +1,28 @@
-body, html {
-    height: 100%;
-  }
-
-.bg-img {
-    background-image: url("/images/sketch-paper-md.jpg");
-    background-size: cover;
+body,
+html {
+  height: 100%;
 }
 
-.book-collection{
-    background-color: transparent;
+.bg-img {
+  background-image: url("/images/sketch-paper-md.jpg");
+  background-size: cover;
+}
+
+.book-collection {
+  background-color: transparent;
 }
 
 .cont-title {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .footer {
-    padding: 15px;
-    background-color: #212529;
-  }
+  padding: 15px;
+  background-color: #212529;
+  margin-top: 40px;
+}
 
-  .copyright-info {
-    text-align: center;
-    padding-right: 1rem;
-  }
+.copyright-info {
+  text-align: center;
+  padding-right: 1rem;
+}
