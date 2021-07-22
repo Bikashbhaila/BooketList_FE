@@ -61,6 +61,18 @@ html {
   width: fit-content;
 }
 
+.kindergarden {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.kinder-row {
+  display: flex;
+  width: fit-content;
+}
+
 .card {
   margin: 10px;
 }
