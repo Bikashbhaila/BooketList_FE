@@ -3,14 +3,14 @@ window.onload = getSecondDisplay();
 
 function getSecondDisplay() {
   // google books api link
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=dr.seuss&limit=12`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=dr.seuss`;
 
   // fetch data form the api, parse into json and store as books
   fetch(URL)
     .then((response) => response.json())
     .then((res) => {
       const books = res.items;
-      document.getElementById("first-display").innerHTML = ""; // resetting container so it will load the content in slow networks
+      document.getElementById("second-display").innerHTML = ""; // resetting container so it will load the content in slow networks
       secondDisplay(books); // delegating to display books in results container
     })
     .catch((err) => console.log(err));

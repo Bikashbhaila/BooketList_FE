@@ -13,7 +13,7 @@ function handleSearch(e) {
   // searchBooks(searchInput);
   // document.getElementById("results_header").innerHTML = `Your Search Results for ${searchInput}`
 
-  let createdCard = searchBooks(searchInput);
+  searchBooks(searchInput);
 }
 
 function searchBooks(userInput) {

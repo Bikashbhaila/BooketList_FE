@@ -3,7 +3,7 @@ window.onload = getFirstDisplay();
 
 function getFirstDisplay() {
   // google books api link
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=harry+potter&limit=12`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=harry+potter`;
 
   // fetch data form the api, parse into json and store as books
   fetch(URL)
@@ -42,12 +42,12 @@ function firstDisplay(books) {
 
     cardDiv.innerHTML = `
     <div class="card">
-      <img src=${image_url} class="card-img-top height="300" width="250" alt=${title}>
+      <img src=${image_url} class="card-img-top" height="300" width="250" alt=${title}>
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
-        <h6 class="sub-title text-muted">${author}</h6>
-        <h6 class="sub-title text-muted">${isbn}</h6>
-        <p class="card-text">${categories}</p>  
+        <h6 class="sub-title text-muted">by ${author}</h6>
+        <h6 class="sub-title text-muted">ISBN: ${isbn}</h6>
+        <p class="card-text">Categories: <em>${categories}</em></p>
         <button name="add_Button strong" class="btn btn-primary">BOOK ET</button>
       </div>
     </div>
