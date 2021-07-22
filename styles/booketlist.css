@@ -4,7 +4,7 @@ html {
 }
 
 .bg-img {
-  background-image: url("/images/sketch-paper-md.jpg");
+  background-image: url("../images/sketch-paper-md.jpg");
   background-size: cover;
 }
 

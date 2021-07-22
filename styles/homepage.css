@@ -4,7 +4,7 @@ html {
 }
 
 .jumbotron {
-  background-image: url("/images/books-bg-md.jpg");
+  background-image: url("../images/books-bg-md.jpg");
   background-size: cover;
 }
 
