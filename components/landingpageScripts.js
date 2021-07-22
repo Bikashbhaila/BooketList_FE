@@ -33,7 +33,7 @@ function searchBooks(userInput) {
 
 
 function displayBookResults(books) {
-  console.log(books);
+  // console.log(books);
   for (const book of books) {
     const title = book.volumeInfo.title;
     const author = book.volumeInfo.authors;
@@ -62,14 +62,14 @@ function displayBookResults(books) {
     document.getElementById("results_container").appendChild(cardDiv);
 
     const addBtn = cardDiv.firstElementChild.children[1].lastElementChild;
-    console.log(addBtn);
+    // console.log(addBtn);
     addBtn.addEventListener("click", addCard);
   }
 }
 
 function addCard(e) {
   // extract the data from the elements using target element values
-  console.log(e.target.parentElement);
+  // console.log(e.target.parentElement);
 
 
   const title = e.target.parentElement.children[0].innerHTML; //Title: "Book title" 
@@ -77,7 +77,7 @@ function addCard(e) {
   const isbn = e.target.parentElement.children[2].innerHTML;
   const categories = e.target.parentElement.children[3].innerHTML;
   const image_url = e.target.parentElement.parentElement.children[0].getAttribute("src") //link only
-
+  const notes ="";
 
   // use fetch to make post call to our api 
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
@@ -100,7 +100,8 @@ function addCard(e) {
       author,
       isbn,
       categories,
-      image_url
+      image_url,
+      notes
     })
   })
     .then(res => {

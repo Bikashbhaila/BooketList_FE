@@ -19,7 +19,7 @@ function getAddedBooks(e) {
 function showAddedBooks(addedBooks) {
     for (const book of addedBooks) {
         // extract values from addedBooks
-        const { _id, title, author, isbn, categories, image_url } = book;
+        const { _id, title, author, isbn, categories, image_url, notes} = book;
 
         const cardDiv = document.createElement("div");
         cardDiv.classList.add("col-sm-3");
@@ -32,6 +32,7 @@ function showAddedBooks(addedBooks) {
                 <h6 class="sub-title text-muted">${author}</h6>
                 <h6 class="sub-title text-muted">${isbn}</h6>
                 <p class="card-text">${categories}</p>
+                <p class="card-text>My note: ${notes}</p>
                 <div class="buttons_container">
                     <button name="edit_Button strong" class="btn btn-warning">EDIT ET</button>  
                     <button name="remove_Button strong" class="btn btn-danger">REMOVE ET</button>
