@@ -3,7 +3,7 @@ window.onload = getFirstDisplay();
 
 function getFirstDisplay() {
   // google books api link
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=harry+potter`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=hunger+games`;
 
   // fetch data form the api, parse into json and store as books
   fetch(URL)

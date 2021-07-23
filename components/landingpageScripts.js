@@ -10,8 +10,9 @@ function handleSearch(e) {
   // resetting the form
   e.target.query.value = "";
 
-  // searchBooks(searchInput);
-  // document.getElementById("results_header").innerHTML = `Your Search Results for ${searchInput}`
+  document.getElementById(
+    "results_header"
+  ).innerHTML = `Your Search Results for ${searchInput}`;
 
   searchBooks(searchInput);
 }
@@ -32,7 +33,6 @@ function searchBooks(userInput) {
 }
 
 function displayBookResults(books) {
-  // console.log(books);
   for (const book of books) {
     let title = book.volumeInfo.title;
     let author = book.volumeInfo.authors;
@@ -62,9 +62,6 @@ function displayBookResults(books) {
       image_url = book.volumeInfo.imageLinks.thumbnail.replace("http", "https");
     }
 
-    // if (title === undefined || author === undefined || description === undefined isbn, categories, notes )
-
-    // { title, autor, des} = "No inform atio"
     // create card components
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col-sm-3");
@@ -85,16 +82,13 @@ function displayBookResults(books) {
     document.getElementById("results_container").appendChild(cardDiv);
 
     const addBtn = cardDiv.firstElementChild.children[1].lastElementChild;
-    //console.log(addBtn);
     addBtn.addEventListener("click", addCard);
   }
 }
 
 function addCard(e) {
   // extract the data from the elements using target element values
-  // console.log(e.target.parentElement);
-
-  const title = e.target.parentElement.children[0].innerHTML; //Title: "Book title"
+  const title = e.target.parentElement.children[0].innerHTML;
   const author = e.target.parentElement.children[1].innerHTML.replace("by", "");
   const isbn = e.target.parentElement.children[2].innerHTML.replace(
     "ISBN: ",
@@ -105,8 +99,8 @@ function addCard(e) {
     ""
   );
   const image_url =
-    e.target.parentElement.parentElement.children[0].getAttribute("src"); //link only
-  const notes = "**Click NOTE ET button to add note";
+    e.target.parentElement.parentElement.children[0].getAttribute("src");
+  const notes = "**Click NOTE ET button to add note"; //  Default values for placeholder
 
   // use fetch to make post call to our api
   const herokuApiUrl = "https://booketlist.herokuapp.com/books";
@@ -137,6 +131,6 @@ function addCard(e) {
       if (res.ok) return res.json();
     })
     .then((response) => {
-      console.log(response); // console logging success
+      console.log(response);
     });
 }

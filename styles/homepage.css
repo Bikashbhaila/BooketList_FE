@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+#nav-bar {
+  background-color: #363636;
+}
+
 .jumbotron {
   background-image: url("../images/books-bg-md.jpg");
   background-size: cover;
@@ -10,6 +14,8 @@ html {
 
 .cont-title {
   padding-top: 10px;
+  font-family: "Slabo 27px", serif;
+  font-size: xx-large;
 }
 
 .book-search {
@@ -37,40 +43,40 @@ html {
   margin: 5px;
 }
 
-.trending {
+.first-cont {
   background-color: whitesmoke;
   border-radius: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.trending-row {
+.first-row {
   display: flex;
-  width: fit-content;
+  width: fit-content(18rem);
 }
 
-.school {
+.second-cont {
   background-color: whitesmoke;
   border-radius: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.school-row {
+.second-row {
   display: flex;
-  width: fit-content;
+  width: fit-content(18rem);
 }
 
-.kindergarden {
+.third-cont {
   background-color: whitesmoke;
   border-radius: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.kinder-row {
+.third-row {
   display: flex;
-  width: fit-content;
+  width: fit-content(18rem);
 }
 
 .card {
@@ -102,7 +108,14 @@ html {
   padding-right: 1rem;
 }
 
+#main_results_container {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
 #results_container {
+  background-color: whitesmoke;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

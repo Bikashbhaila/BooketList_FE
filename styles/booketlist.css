@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+#nav-bar {
+  background-color: #363636;
+}
+
 .bg-img {
   background-image: url("../images/sketch-paper-md.jpg");
   background-size: cover;
