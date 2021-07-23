@@ -1,12 +1,15 @@
 const loggedOutNav = `
 <li class="nav-item">
-    <a class="nav-link" href="/view/signin.html">Sign in</a>
+    <a class="nav-link active" aria-current="page" href="./view/booketlist.html">Booket</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="/view/register.html">Register</a>
+    <a class="nav-link" href="/view/signin.html">Log in</a>
 </li>`;
 
 const loggedInNav = `
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="./view/booketlist.html">Booket</a>
+</li>
 <li class="nav-item">
     <a class="nav-link" href="./view/index.html">Log out</a>
 </li>
